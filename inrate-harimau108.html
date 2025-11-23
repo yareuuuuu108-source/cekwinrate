@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>WINRATE HARIMAU108</title>
+
+<!-- FONT KEREN -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: #000;
+        color: #00ff00;
+        font-family: 'Orbitron', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .container {
+        width: 380px;
+        text-align: center;
+        padding: 25px;
+        background: rgba(0,0,0,0.6);
+        border-radius: 12px;
+        box-shadow: 0 0 20px #00ff00;
+    }
+
+    /* Judul animasi */
+    .judul {
+        font-size: 28px;
+        margin-bottom: 25px;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0;
+        border-right: 3px solid #00ff00;
+        animation: typing 4s steps(40) forwards, blink 1s infinite;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 360px; }
+    }
+
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
+
+    label {
+        display: block;
+        text-align: left;
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 6px;
+        border: 1px solid #00ff00;
+        background: #111;
+        color: #0f0;
+        margin-top: 5px;
+    }
+
+    /* Tombol */
+    .btn {
+        width: 100%;
+        padding: 12px;
+        background: #2ecc71;
+        border: none;
+        color: white;
+        font-size: 18px;
+        margin-top: 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .btn:hover {
+        background: #27ae60;
+        transform: scale(1.05);
+    }
+
+    /* Loading spinner */
+    .spinner {
+        display: none;
+        margin: 20px auto;
+        border: 5px solid #333;
+        border-top: 5px solid #00ff00;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Hasil winrate */
+    #hasil {
+        display: none;
+        margin-top: 20px;
+        font-size: 24px;
+        color: #00ff00;
+        text-shadow: 0 0 10px #00ff00;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="judul">WINRATE HARIMAU108</div>
+
+    <label>USER ID :</label>
+    <input type="text" id="userid" placeholder="Masukkan User ID">
+
+    <button class="btn" onclick="cekWinrate()">CEK</button>
+
+    <div class="spinner" id="loading"></div>
+
+    <div id="hasil">WINRATE : 97%</div>
+</div>
+
+<script>
+function cekWinrate() {
+    let user = document.getElementById("userid").value;
+
+    if (user.trim() === "") {
+        alert("Masukkan USER ID terlebih dahulu!");
+        return;
+    }
+
+    document.getElementById("loading").style.display = "block";
+    document.getElementById("hasil").style.display = "none";
+
+    setTimeout(() => {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("hasil").style.display = "block";
+    }, 2500);
+}
+</script>
+
+</body>
+</html>
